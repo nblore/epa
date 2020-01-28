@@ -1,13 +1,13 @@
 package epa.service.implementation;
 
-import epa.entity.Card;
-import epa.repository.CardRepository;
-import epa.service.CardService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+        import epa.entity.Card;
+        import epa.repository.CardRepository;
+        import epa.service.CardService;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+        import java.util.List;
+        import java.util.Optional;
 
 @Service
 public class CardServiceImpl implements CardService {
@@ -22,5 +22,6 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public Card save(Card card) { return cardRepository.save(card); }
+
 }
 

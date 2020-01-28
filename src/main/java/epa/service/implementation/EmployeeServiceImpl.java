@@ -16,12 +16,23 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> findAll() { return employeeRepository.findAll(); }
+    public List<Employee> findAll() {
+        return employeeRepository.findAll();
+    }
 
     @Override
-    public Employee save(Employee employee) { return employeeRepository.save(employee); }
+    public Employee save(Employee employee) {
+        return employeeRepository.save(employee);
+    }
 
     @Override
-    public Optional<Employee> findById(String employee_id) { return employeeRepository.findById(employee_id); }
+    public Optional<Employee> findById(String employee_id) {
+        return employeeRepository.findById(employee_id);
+    }
+
+    @Override
+    public void delete(Employee employee) {
+         employeeRepository.delete(employee);
+    }
 }
 
