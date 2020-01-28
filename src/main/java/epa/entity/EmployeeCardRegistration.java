@@ -8,6 +8,7 @@ public class EmployeeCardRegistration {
     private String email;
     private String mobile;
     private int pin;
+    private double balance;
 
     public String getId() {
         return id;
@@ -55,5 +56,12 @@ public class EmployeeCardRegistration {
 
     public void setPin(int pin) {
         this.pin = pin;
+    }
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int pin) {
+        this.balance = balance;
     }
 }

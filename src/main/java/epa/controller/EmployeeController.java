@@ -50,27 +50,29 @@ public class EmployeeController {
     public ResponseEntity<String> delete(@RequestParam String id) {
         Optional<Employee> employeeToDelete = employeeService.findById(id);
         employeeService.delete(employeeToDelete.get());
-        return new ResponseEntity<String>("deleted", HttpStatus.OK);
+        return new ResponseEntity<String>("User: " + employeeToDelete.get().getName() + ", was deleted", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/employee/register", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getBalance(@RequestBody EmployeeCardRegistration employeeReg) {
 
         Optional<Card> card = cardService.findById(employeeReg.getCardId());
+        Employee empl = new Employee();
+        Card card1 = new Card();
 
         if (card.isPresent()) {
-            Employee card_empl = employeeService.findById(card.get().getEmployee_id()).get();
-            return new ResponseEntity<String>("User " + card_empl.getName() +" already exist", HttpStatus.OK);
+            return new ResponseEntity<String>("Card: "+ card.get().getId() + " already registered", HttpStatus.OK);
 
         } else {
-            Employee empl = new Employee();
             empl.setId(employeeReg.getId());
             empl.setName(employeeReg.getName());
             empl.setEmail(employeeReg.getEmail());
             empl.setMobile(employeeReg.getMobile());
             empl.setPin(employeeReg.getPin());
+            card1.setBalance(employeeReg.getBalance());
+
             employeeService.save(empl);
-            return new ResponseEntity<String>("New User Registered " + empl.getId(), HttpStatus.OK);
+            return new ResponseEntity<String>("New User Registered: " + empl.getName(), HttpStatus.OK);
 
         }
     }
