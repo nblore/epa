@@ -43,7 +43,7 @@ connections. This will compromise security.
 
     docker logs epadb
 
-## 4. Start the springbboot server by running
+## 4. Start the springboot server by running
 
     mvn spring spring-boot:run
 
@@ -53,17 +53,17 @@ To view the database please open MySQLWorkbench
 
 ## 5. Endpoints available:
 
-_http://localhost:8000/api/employee/login_ >> **POST REQUEST**
+http://localhost:8000/api/employee/login >> **POST REQUEST**
 
-_http://localhost:8000/api/employee/register_ >> **POST REQUEST**
+http://localhost:8000/api/employee/register >> **POST REQUEST**
 
-_http://localhost:8000/api/card/balance_ >> **POST REQUEST**
+http://localhost:8000/api/card/balance >> **POST REQUEST**
 
-_http://localhost:8000/api/card/topup_ >> **POST REQUEST**
+http://localhost:8000/api/card/topup >> **POST REQUEST**
 
-_http://localhost:8000/api/employees_ >> **GET REQUEST**
+http://localhost:8000/api/employees >> **GET REQUEST**
 
-_http://localhost:8000/api/employee/delete_ >> **DELETE REQUEST**
+http://localhost:8000/api/employee/delete >> **DELETE REQUEST**
 
 
 Please refer to the user guide on how to test these endpoints.
