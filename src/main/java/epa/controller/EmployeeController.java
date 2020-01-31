@@ -62,7 +62,7 @@ public class EmployeeController {
             }
 
         } else {
-            return new ResponseEntity<>("Cards not found ", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Card not found ", HttpStatus.NOT_FOUND);
         }
     }
 
@@ -92,7 +92,7 @@ public class EmployeeController {
             empl.setPin(employeeReg.getPin());
             empl.setSession_time(new Timestamp(System.currentTimeMillis()));
             employeeService.save(empl);
-            return new ResponseEntity<String>("New User Registered " + empl.getId(), HttpStatus.OK);
+            return new ResponseEntity<String>("New User Registered: " + empl.getName(), HttpStatus.OK);
 
         }
     }

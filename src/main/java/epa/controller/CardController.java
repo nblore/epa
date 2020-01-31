@@ -45,7 +45,7 @@ public class CardController {
 
                 } else {
                     //User needs to relog back
-                    return new ResponseEntity<String>("Please relogin", HttpStatus.FORBIDDEN);
+                    return new ResponseEntity<String>("Session expired, please login again", HttpStatus.FORBIDDEN);
                 }
 
             } else {
@@ -73,7 +73,7 @@ public class CardController {
 
                 } else {
                     //User needs to relog back
-                    return new ResponseEntity<String>("Please relogin", HttpStatus.FORBIDDEN);
+                    return new ResponseEntity<String>("Session expired, please login again", HttpStatus.FORBIDDEN);
                 }
             } else {
                 return new ResponseEntity<String>("Incorrect Pin ", HttpStatus.FORBIDDEN);
