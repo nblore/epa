@@ -62,7 +62,7 @@ public class EmployeeController {
             }
 
         } else {
-            return new ResponseEntity<>("Card not found ", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Card not found, please register", HttpStatus.NOT_FOUND);
         }
     }
 

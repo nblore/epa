@@ -38,13 +38,11 @@ public class CardController {
             if (loginDetails.getPassword() == empl.getPin()) {
 
                 if(lastActivityPlusTimeoutCalculator(empl).after( new Timestamp(System.currentTimeMillis()))){
-                    //User currently active
                     empl.setSession_time(new Timestamp(System.currentTimeMillis()));
                     employeeService.save(empl);
                     return new ResponseEntity<String>("Welcome " + empl.getName() +" your balance is £" + card.get().getBalance(), HttpStatus.OK);
 
                 } else {
-                    //User needs to relog back
                     return new ResponseEntity<String>("Session expired, please login again", HttpStatus.FORBIDDEN);
                 }
 
@@ -65,14 +63,12 @@ public class CardController {
             if (cardTopup.getPassword() == empl.getPin()) {
 
                 if(lastActivityPlusTimeoutCalculator(empl).after( new Timestamp(System.currentTimeMillis()))){
-                    //User currently active
                     card.get().setBalance(card.get().getBalance()+ cardTopup.getBalance());
                     empl.setSession_time(new Timestamp(System.currentTimeMillis()));
                     cardService.save(card.get());
-                    return new ResponseEntity<String>("Balance Updated - New Balance: " + card.get().getBalance(), HttpStatus.OK);
+                    return new ResponseEntity<String>("Balance Updated - New Balance: £" + card.get().getBalance(), HttpStatus.OK);
 
                 } else {
-                    //User needs to relog back
                     return new ResponseEntity<String>("Session expired, please login again", HttpStatus.FORBIDDEN);
                 }
             } else {
@@ -84,7 +80,7 @@ public class CardController {
     }
 
     private Timestamp lastActivityPlusTimeoutCalculator(Employee empl){
-        int timeoutInSeconds = 15;
+        int timeoutInSeconds = 120;
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(empl.getSession_time().getTime());
         cal.add(Calendar.SECOND, timeoutInSeconds);

@@ -7,6 +7,7 @@ epa/controller/EmployeeController.class
 epa/service/EmployeeService.class
 epa/entity/EmployeeCardRegistration.class
 epa/entity/Employee.class
+epa/entity/LoginDetails.class
 epa/service/implementation/CardServiceImpl.class
 epa/service/CardService.class
 epa/entity/CardTopup.class
